@@ -9,6 +9,7 @@ def download_and_convert_to_mp3(youtube_url):
     video_stream = yt.streams.filter(file_extension='mp4').first()
     video_path = os.path.join(r"C:\Users\AMozy\Videos", 
                               video_stream.download(output_path=r"C:\Users\AMozy\Videos"))
+    
     # Convert to MP3
     print("Converting to MP3...")
     video_clip = VideoFileClip(video_path)
@@ -23,7 +24,7 @@ def download_and_convert_to_mp3(youtube_url):
     print("Conversion complete. MP3 file saved at:", mp3_path)
 
 while True:
-    youtube_url = input('Enter Youtube video link => ')
+    youtube_url = input("Enter Youtube link or 'c' to close=> ")
     if youtube_url == 'c':
         break
     else:
